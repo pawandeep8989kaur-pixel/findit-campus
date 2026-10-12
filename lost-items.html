@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FindIt Campus - Lost Items</title>
+</head>
+<body>
+    <h1>FindIt Campus</h1>
+    <h2>Report a Lost Item</h2>
+
+    <form id="lostForm">
+        <label for="itemName">Item Name:</label>
+        <input type="text" id="itemName" required>
+
+        <br><br>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" required>
+
+        <br><br>
+
+        <label for="location">Lost Location:</label>
+        <input type="text" id="location" required>
+
+        <br><br>
+<label for="lostDate">Date Lost:</label>
+<input type="date" id="lostDate" required>
+
+<br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Lost Items</h2>
+    <ul id="lostList"></ul>
+
+    <script>
+        document.getElementById("lostForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("itemName").value;
+            const description = document.getElementById("description").value;
+            const location = document.getElementById("location").value;
+            const lostDate = document.getElementById("lostDate").value;
+
+            const item = document.createElement("li");
+            item.textContent = name + " - " + description + " - " + location + " - " + lostDate;
+
+            document.getElementById("lostList").appendChild(item);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
